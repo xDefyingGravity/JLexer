@@ -10,14 +10,15 @@
 ```
 Local:
 
-	• <script src="jlexer.min.js"></script>
+```html 
+<script src="jlexer.min.js"></script>
+```
 Getting Started:
 
 JLexer simplifies the process of splitting input into tokens.
 
 ## Defining Tokens:
 ```javascript
-const JLexer = require("jlexer");
 
 const config = {
   do_paren_leveling: true,
@@ -26,12 +27,13 @@ const config = {
 };
 
 const tokens = {
-  STRING: /\"[^\"]*\"/,
+  INT: /\d+/,
+  PLUS: /\d+/,
   // Customize the following tokens as needed.
   // ...
 };
-
-const tokenized_output = JLexer(tokens, config);
+const input = '5+3';
+const tokenized_output = JLexer(input,config,tokens);
 ```
 ## Configuration:
 
@@ -55,7 +57,7 @@ const tokens = {
 ## How to run and tokenize the input:
 ```javascript
 const codeExample = '2+3';
-const tokenizedOutput = JLexer(tokens, config);
+const tokenizedOutput = JLexer(input,config,tokens);
 console.log(tokenizedOutput);
 ```
 Version:
